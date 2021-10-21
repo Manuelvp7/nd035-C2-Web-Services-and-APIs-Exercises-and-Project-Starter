@@ -2,12 +2,12 @@ package com.udacity.vehicles.service;
 
 import com.udacity.vehicles.domain.car.Car;
 import com.udacity.vehicles.domain.car.CarRepository;
-import java.util.List;
-import java.util.Optional;
-
 import com.udacity.vehicles.service.maps.LocationService;
 import com.udacity.vehicles.service.price.PricingService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Implements the car service create, read, update or delete
@@ -111,11 +111,14 @@ public class CarService {
          * TODO: Find the car by ID from the `repository` if it exists.
          *   If it does not exist, throw a CarNotFoundException
          */
+        Car car = repository.findById(id).orElseThrow(CarNotFoundException::new);
 
 
         /**
          * TODO: Delete the car from the repository.
          */
+
+        repository.delete(car);
 
 
     }
